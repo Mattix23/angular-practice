@@ -10,8 +10,8 @@ export class NasaApiService {
 
 constructor(private http: HttpClient) {}
 
-getAstronomyPictureOfTheDay() {
-    const url = `https://api.nasa.gov/planetary/apod?api_key=${this.apiKey}`;
+getAstronomyPictureOfTheDay(date?:string): Observable<any> {
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${this.apiKey}&date=${date}`;
     
     return this.http.get(url);
     }
